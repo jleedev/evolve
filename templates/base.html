@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="/evolve_media/style.css">
+<title>Evolve: {% block title %}Untitled page{% endblock %}</title>
+{% block head %}{% endblock %}</head>
+
+<body class="{% block bodyclass %}{% endblock %}">
+{% block body %}
+<div id="content">
+{% block content %}{% endblock %}
+</div>
+{% endblock %}</body>
+</html>
+{%comment%} vi:se ft=htmldjango: {%endcomment%}

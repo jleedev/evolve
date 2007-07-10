@@ -1,0 +1,22 @@
+{% extends "base" %}
+
+{% block body %}
+<div id="content">
+<h1>{% block title %}{% endblock %}</h1>
+{% block content %}{% endblock %}</div>
+
+<div id="navigation">
+<ul>
+	<li class="home"><a href="/evolve/">Home</a></li>
+	<li class="vote"><a href="/evolve/vote/">Vote</a></li>
+	<li class="browse"><a href="/evolve/view/">View</a></li>
+	<li class="about"><a href="/evolve/about/">About</a></li>
+</ul>
+</div>
+
+<div id="footer">
+<address>Copyright 2006 <a href="mailto:jleedev gmail com">Josh Lee</a></address>
+</div>
+
+{% endblock %}
+{%comment%} vi:se ft=htmldjango: {%endcomment%}

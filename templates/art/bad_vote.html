@@ -1,0 +1,8 @@
+{% extends "base" %}
+{% block title %}Invalid vote{% endblock %}
+{% block body %}
+<h1>Invalid vote</h1>
+<p>Your browser submitted a vote of <tt>{{ vote|escape }}</tt>, which is neither <tt>"good"</tt> nor <tt>"bad"</tt>. Most likely, this is because Internet Explorer <a href="http://www.howtocreate.co.uk/wrongWithIE/">doesn't know</a> HTML.</p>
+<p>Working around it would be a waste of my time.</p>
+{% endblock %}
+{%comment%} vi:se ft=htmldjango: {%endcomment%}

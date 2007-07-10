@@ -1,0 +1,24 @@
+{% extends "art/base" %}
+{% block title %}Browse organisms{% endblock %}
+{% block bodyclass %}browse{% endblock %}
+
+{% block content %}
+<h2>By generation</h2>
+<p>
+{% for gen in gens %}<a href="{{ gen }}/">{{ gen }}</a>
+{% endfor %}</p>
+
+<h2>Top 5 ever</h2>
+<div class="thumbs">
+{% for org in top_list %}
+<a href="{{ org.generation }}/{{ org.id }}/"><img src="{{ org.get_thumbnail_url }}" alt="Org #{{ org.id }}" width="100" height="100"></a>{% endfor %}
+</div>
+
+<h2>Random 5</h2>
+<div class="thumbs">
+{% for org in random_list %}
+<a href="{{ org.generation }}/{{ org.id }}/"><img src="{{ org.get_thumbnail_url }}" alt="Org #{{ org.id }}" width="100" height="100"></a>{% endfor %}
+</div>
+{% endblock %}
+
+{%comment%} vi:se ft=htmldjango: {%endcomment%}

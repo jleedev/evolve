@@ -1,0 +1,27 @@
+table Organisms:
+	int ID
+	int generation
+	string Genes
+	int upVotes, downVotes
+	bool selected
+
+operators:
+	nullary:
+		x, y
+		constant
+	unary:
+		sin, cos, tan
+		round
+		opposite
+	binary:
+		+-*/
+		mod
+	tertiary:
+		rgb, hsl
+
+things I can do with trees:
+	create a random one
+	serialize to a string
+	unserialize to a tree
+	compile so i can evaluate it
+	crossover and mutate

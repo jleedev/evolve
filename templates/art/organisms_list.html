@@ -1,0 +1,13 @@
+{% extends "art/base" %}
+{% block title %}All Organisms{% endblock %}
+{% block bodyclass %}browse{% endblock %}
+
+{% block content %}
+<div class="thumbs">
+{% for org in object_list %}
+<a href="{{ org.get_absolute_url }}"><img src="{{ org.get_thumbnail_url }}"></a>
+{% endfor %}
+</div>
+{% endblock %}
+
+{%comment%} vi:se ft=htmldjango: {%endcomment%}

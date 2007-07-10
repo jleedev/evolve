@@ -1,0 +1,53 @@
+{% extends "art/base" %}
+{% block title %}Organism #{{ organism.id }}{% endblock %}
+{% block bodyclass %}browse{% endblock %}
+
+{% block head %}
+<link rel="up" href="../">
+{% endblock %}
+
+{% block content %}
+<p><a href="../">&uarr; generation {{ organism.generation }}</a></p>
+
+<div id="metadata">
+<table>
+	<tbody>
+		<tr><th>DNA<td>{{ organism.pretty_genes }}</tr>
+		<tr><th>Votes<td>{{ organism.upvotes }} up, {{ organism.downvotes }} down</tr>
+		<tr><th>Rating<td>{{ organism.rating }}</tr>
+	</tbody>
+</table>
+</div>
+
+<table id="view" style="text-align:center">
+	<tr>
+		<!-- is something wrong with this? it doesn't like showing all the children -->
+		<td>
+			{% if parents %}
+				{{ parents|length }} parent{{ parents|length|pluralize }}
+				{% for parent in parents %}
+					<a href="{{ parent.get_absolute_url }}"><img src="{{ parent.get_thumbnail_url }}" alt="Artwork #{{ parent.id }}" width="100" height="100"></a>{% endfor %}
+			{% else %}
+				no parents
+			{% endif %}
+		</td>
+
+		<td>
+			<img src="{{ organism.get_image_url }}" alt="Artwork #{{ organism.id }}" width="400" height="400" class="big_picture">
+		</td>
+
+		<td>
+			{% if children %}
+				{% for child in children %}
+					<a href="{{ child.get_absolute_url }}"><img src="{{ child.get_thumbnail_url }}" alt="Artwork #{{ child.id }}" width="100" height="100"></a>{% endfor %}
+				{% comment %}XXX I should upgrade to 0.95 to get a real pluralize function :){% endcomment %}
+				{{ children|length }} child{% ifnotequal children|length 1 %}ren{% endifnotequal %}
+			{% else %}
+				no children
+			{% endif %}
+		</td>
+	</div>
+</div>
+{% endblock %}
+
+{%comment%} vi:se ft=htmldjango: {%endcomment%}

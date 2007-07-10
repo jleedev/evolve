@@ -1,0 +1,3 @@
+Note: startup.py and breeder.py have some copy-and-pasted code
+Need to: make breeder add new random ones
+Need to: more status, like which generation, on the front page

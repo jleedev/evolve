@@ -1,0 +1,24 @@
+{% extends "art/base" %}
+{% block title %}About Evolve{% endblock %}
+{% block bodyclass %}about{% endblock %}
+{% block content %}
+<p><a href="http://en.wikipedia.org/wiki/Evolutionary_art">Evolutionary art</a> uses <a href="http://en.wikipedia.org/wiki/Genetic_programming">genetic programming</a> to produce art. It produces an initial population of random pictures, throws out the bad ones, and mixes the good ones together to form even better pictures in the hope that something aesthetically pleasing will appear. This is a project of <a href="mailto:jleedev gmail com">Josh Lee</a>.</p>
+<p>The best designs may end up on ties or wallpaper. &#x263a;</p>
+<p><a href="/~josh/code/evolve.tar.bz2">Download the source code (117 KB)</a></p>
+<h2>How it works</h2>
+<img src="/evolve_media/example_tree.png" alt="Example tree representing the expression RGB(Sin(3*x), x-y, 3/y)" style="float:right;max-width:3in">
+<p>Each organism is represented by an expression tree. The expression takes two parameters, <var>x</var> and <var>y</var>, and manipulates them to create a color. The expression is evaluated for each point on the canvas, and together these points form an image.</p>
+<p>Once enough votes have been collected, the genetic algorithm gets to work. It picks the good images and breeds them using either mutation or crossing-over. Since the images' genes are just trees, it is simple to cross-over two of them and produce new ones. It also inserts new organisms into the mix, to keep things fresh.</p>
+<p>While the next generation is being prepared, you can still vote on the current generation, since it takes those votes into account.</p>
+<p><small>Note: Python <a href="http://www.python.org/sf/215555">places an artificial limit</a> on how deeply nested an expression can be, which limits how complicated the patterns can get. Which may be good or bad.</small></p>
+<h2>Powered by</h2>
+<ul>
+<li><a href="http://www.python.org/">Python</a>
+<li><a href="http://www.djangoproject.com/">Django</a>
+<li><a href="http://www.stsci.edu/resources/software_hardware/numarray">numarray</a>
+<li><a href="http://www.pythonware.com/products/pil/">Python Imaging Library</a>
+</ul>
+<h3>About this server</h3>
+<p>It's a Pentium III 450 MHz with 440 MiB of RAM, and it lives in my living room. It runs <a href="http://www.debian.org/releases/etch/">Debian Etch</a>.</p>
+{% endblock %}
+{%comment%} vi:se ft=htmldjango: {%endcomment%}

@@ -1,0 +1,20 @@
+{% extends "art/base" %}
+{% block title %}Vote on organisms{% endblock %}
+{% block bodyclass %}vote{% endblock %}
+
+{% block content %}
+
+<div id="vote">
+<form action="./" method="post">
+<div>
+	<div><img src="{{ org.get_image_url }}" alt="Artwork #{{ org.id }}" class="big_picture" width="400" height="400"></div>
+	<input type="hidden" name="id" value="{{ org.id }}">
+	<input type="hidden" name="formkey" value="{{ key.hash }}">
+	<button name="vote" value="bad"><img src="/evolve_media/sad.png" alt=":-(" width="48" height="48"></button>
+	<button name="vote" value="good"><img src="/evolve_media/happy.png" alt=":-)" width="48" height="48"></button>
+</div>
+</form>
+</div>
+{% endblock %}
+
+{%comment%} vi:se ft=htmldjango: {%endcomment%}

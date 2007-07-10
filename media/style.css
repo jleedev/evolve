@@ -1,0 +1,174 @@
+body, html {
+	/* *WHERE* *IS* *EVERYBODY*! */
+	/* everybody needs to get on the same page, that's where */
+	margin: 0;
+	padding: 4px;
+}
+
+body {
+	font-family: "Bitstream Vera Sans", "DejaVu Sans", Verdana, sans-serif;
+	color: #222;
+	background: white;
+}
+
+h1,h2,h3 {
+	font-family: Candara, "Trebuchet MS", sans-serif;
+	color: #223;
+}
+
+ul {
+	list-style: square;
+}
+
+a {
+	text-decoration: underline;
+}
+
+a:hover {
+	outline: 1px solid maroon;
+	text-decoration: none;
+}
+
+a:link:hover {
+	background: #f0faff;
+	outline-color: blue;
+}
+
+a:visited:hover {
+	background: #fff0fa;
+}
+
+a img {
+	border: 1px solid black;
+}
+
+var {
+	font-family: Georgia, serif;
+	font-style: italic;
+}
+
+/* LAYOUT */
+
+div#content {
+	margin-top: 3em;
+}
+
+div#navigation {
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin: 1em;
+}
+
+div#navigation * {
+	display: inline;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+div#navigation a {
+	color: maroon;
+	outline: 1px #eaeaea solid;
+	padding: 1ex;
+	text-decoration: none;
+}
+
+div#footer {
+	font-size: x-small;
+	color: #999;
+	position: absolute;
+	top: 1em;
+	right: 1em;
+}
+
+/* since I've changed the outline on links, firefox wants me to change the outline back on focus */
+div#navigation a:hover, div#navigation a:focus {
+	outline-color: maroon !important;
+	background: #fdd !important;
+}
+
+/* the selected tab */
+.home #navigation .home a,
+.vote #navigation .vote a,
+.browse #navigation .browse a,
+.about #navigation .about a {
+	background: #faf0f0;
+	outline-color: #a66;
+}
+
+/* VOTING */
+
+#vote button {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 1ex;
+	margin: 1em;
+}
+
+#vote button:hover {
+	background: #cbd4de;
+	outline: #b2bac0 solid thin;
+}
+
+#vote button img {
+	display: block;
+}
+
+#vote form {
+	text-align: center;
+}
+
+img.big_picture {
+	border: 1px solid;
+}
+
+/* BROWSING */
+
+.pager {
+	clear: left;
+	text-align: center;
+}
+
+.thumbs img {
+	display: block;
+	margin: 3px;
+}
+
+.thumbs a {
+	display: block;
+	float: left;
+}
+
+.thumbs {
+	width: 100%;
+	overflow: auto; 
+	padding: 6px;
+	margin: -6px;
+}
+
+/* VIEWING */
+
+#metadata {
+	font-size: smaller;
+	font-family: monospace;
+}
+
+#metadata th {
+	vertical-align: top;
+	text-align: right;
+}
+
+table#view {
+	margin: auto;
+}
+
+table#view td {
+	vertical-align: bottom;
+	text-align: right;
+}
+
+table#view td + td + td {
+	text-align: left;
+}
