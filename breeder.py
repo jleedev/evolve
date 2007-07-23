@@ -32,12 +32,12 @@ def selection():
 	"Continuously yield organisms that have a good rating"
 	gen = organisms.get_current_generation()
 	orgs = organisms.get_list(generation__exact=gen, order_by='?')
-	max_rating = sum([org.rating for org in orgs])
+	max_rating = float(sum([org.rating for org in orgs]))
 	while True:
 		choice = random.random() * max_rating
 		current = 0.0
 		for org in orgs:
-			current += org.rating
+			current += float(org.rating)
 			if current >= choice:
 				yield org
 				break
