@@ -121,7 +121,7 @@ def generation(request, generation_num):
 
 def perfection(request):
 	"Browse all perfect organisms."
-	total = organisms.get_count(rating__exact=1.0, rendered__exact=True, upvotes__gt=1)
+	total = organisms.get_count(rating__exact=1.0, rendered__exact=True, generation__lt=organisms.get_current_generation())
 	start = int(request.GET.get("start", 0))
 	if start < 0: start += total
 	stop = start + PAGE_SIZE
@@ -135,7 +135,7 @@ def perfection(request):
 	orgs = organisms.get_list(
 		rating__exact=1.0,
 		rendered__exact=True,
-		upvotes__gt=1,
+		generation__lt=organisms.get_current_generation()
 		limit = 10,
 		offset = start,
 		order_by = ["-upvotes"],
