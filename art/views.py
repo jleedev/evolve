@@ -121,7 +121,7 @@ def generation(request, generation_num):
 
 def perfection(request):
 	"Browse all perfect organisms."
-	total = organism.get_count(rating__exact=1.0, rendered__exact=True)
+	total = organisms.get_count(rating__exact=1.0, rendered__exact=True)
 	start = int(request.GET.get("start", 0))
 	if start < 0: start += total
 	stop = start + PAGE_SIZE
