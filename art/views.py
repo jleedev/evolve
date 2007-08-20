@@ -133,7 +133,7 @@ def perfection(request):
 	if next >= total: next = "None"
 
 	orgs = organisms.get_list(
-		rating__exact=1.0
+		rating__exact=1.0,
 		rendered__exact=True,
 		limit = 10,
 		offset = start,
