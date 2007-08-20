@@ -10,7 +10,7 @@ def main(argv):
 		count = int(argv[1])
 	except:
 		count = GENERATION_SIZE
-	
+
 	while count:
 		print count, "left to go"
 		t = tree.random_tree()

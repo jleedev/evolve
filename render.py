@@ -56,7 +56,7 @@ def evaluate(c, y, x):
 	# minimum and maximum values.
 	copy = ravel(result.copy())
 	copy.sort()
-	
+
 	for minv in copy:
 		if not is_special(minv): break
 	else: raise ValueError("Ack! No numbers!")
@@ -84,7 +84,7 @@ def evaluate(c, y, x):
 def _render(t):
 	"Renders the tree and returns the image data."
 	print "Rendering", t
-	
+
 	if t[0] != "rgb": raise ValueError("t must be an rgb() node")
 
 	nodes = []

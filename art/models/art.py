@@ -15,11 +15,11 @@ class Organism(meta.Model):
 	def __repr__(self):
 		return "Organism (id:%s, generation:%s, genes:'%s')" % \
 			(self.id, self.generation, self.genes)
-	
+
 	def __str__(self):
 		return "Organism (id:%s, generation:%s, genes:'%s')" % \
 			(self.id, self.generation, self.genes_ellipsize())
-	
+
 	def eval_genes(self):
 		from tree import Node
 		try:
@@ -27,7 +27,7 @@ class Organism(meta.Model):
 		except MemoryError:
 			# dang python parser
 			return "[MemoryError] %s" % self.genes
-	
+
 	def pretty_genes(self):
 		try:
 			return self.eval_genes().expr()
@@ -44,7 +44,7 @@ class Organism(meta.Model):
 
 	def get_absolute_url(self):
 		return "/evolve/view/%s/%s/" % (self.generation, self.id)
-	
+
 	def _image_part(self):
 		return "renders/%s/%s.png" % (self.generation, self.id)
 	def _thumbnail_part(self):
@@ -68,11 +68,11 @@ class Organism(meta.Model):
 		"Returns a sorted list of all generations."
 		return [d.values()[0] for d in get_values(fields=["generation"],
 		distinct=True, order_by = ["generation"])]
-	
+
 	def _module_get_current_generation():
 		"Returns the generation in voting now."
 		return int(file("/home/josh/code/evolve/CURRENT").read())
-	
+
 	def _module_get_votable_organism(count=1):
 		"""Returns one or more organisms that have the fewest votes and
 		are in the current generation."""
@@ -95,7 +95,7 @@ class Organism(meta.Model):
 			self.rating = 0
 		else:
 			self.rating = 0.5
-	
+
 	class META:
 		admin = meta.Admin(
 			list_display = (

@@ -12,7 +12,7 @@ def _mutate(t):
 	e = enumerate(t)
 	if t[0] == "rgb":
 		e.next()
-	
+
 	# We're picking a random index of t, weighted by size
 	stuff = []
 

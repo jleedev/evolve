@@ -19,7 +19,7 @@ def vote(request):
 		#	assert key.check(id)
 		#except (formkeys.FormkeyDoesNotExist, AssertionError):
 		#	return render_to_response("art/bad_formkey")
-		
+	
 		# Okey-dokey
 		org = organisms.get_object(pk=id)
 		if vote == "good":
@@ -30,11 +30,11 @@ def vote(request):
 			response = render_to_response("art/bad_vote", {"vote":request.POST.getlist("vote")})
 			response.status_code = 400
 			return response
-		
+	
 		org.save()
 		#key.delete()
 		return HttpResponseRedirect("/evolve/vote/")
-		
+	
 	org = organisms.get_votable_organism()
 	#key = formkeys.Formkey(data=org.id)
 	#key.save()
@@ -69,7 +69,7 @@ def vote2(request):
 		org2.save()
 
 		return HttpResponseRedirect("/evolve/vote/")
-	
+
 	org1, org2 = organisms.get_votable_organism(2)
 	response = render_to_response("art/vote2", locals())
 	response["Cache-Control"] = "private"
@@ -116,7 +116,7 @@ def generation(request, generation_num):
 		offset = start,
 		order_by = ["-rating"],
 	)
-	
+
 	return render_to_response("art/generation", locals())
 
 def perfection(request):

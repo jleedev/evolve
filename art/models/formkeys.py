@@ -7,7 +7,7 @@ class Formkey(meta.Model):
 	data = meta.IntegerField()
 	# http://code.djangoproject.com/ticket/555
 	timestamp = meta.DateTimeField(auto_now_add=False)
-	
+
 	def _pre_save(self):
 		if not self.timestamp: self.timestamp = datetime.datetime.now()
 		# Tricky tricky. Microseconds vanish when saving to mysql, so
@@ -27,6 +27,6 @@ class Formkey(meta.Model):
 
 	def check(self, data):
 		return self.hash == self.calc_hash(data)
-	
+
 	def __repr__(self):
 		return "Formkey, data=(%s)" % self.data
