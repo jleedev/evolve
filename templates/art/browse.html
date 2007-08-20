@@ -12,6 +12,7 @@
 <div class="thumbs">
 {% for org in top_list %}
 <a href="{{ org.generation }}/{{ org.id }}/"><img src="{{ org.get_thumbnail_url }}" alt="Org #{{ org.id }}" width="100" height="100"></a>{% endfor %}
+<a href="top/">More...</a>
 </div>
 
 <h2>Random 5</h2>

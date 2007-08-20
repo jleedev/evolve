@@ -119,6 +119,29 @@ def generation(request, generation_num):
 	
 	return render_to_response("art/generation", locals())
 
+def perfection(request):
+	"Browse all perfect organisms."
+	total = organism.get_count(rating__exact=1.0, rendered__exact=True)
+	start = int(request.GET.get("start", 0))
+	if start < 0: start += total
+	stop = start + PAGE_SIZE
+	prev = start - PAGE_SIZE
+	next = start + PAGE_SIZE
+	last = total - PAGE_SIZE
+
+	if prev < 0: prev = "None"
+	if next >= total: next = "None"
+
+	orgs = organisms.get_list(
+		rating__exact=1.0
+		rendered__exact=True,
+		limit = 10,
+		offset = start,
+		order_by = ["-upvotes"],
+	)
+
+	return render_to_response("art/perfection", locals())
+
 def view(request, generation_num, organism_id):
 	"Organism detail page"
 	organism = get_object_or_404(organisms,
@@ -133,4 +156,4 @@ def view(request, generation_num, organism_id):
 	children = organism.get_organism_list()
 	return render_to_response("art/view_organism", locals())
 
-__all__ = "index vote vote2 browse generation view".split()
+__all__ = "index vote vote2 browse generation perfection view".split()

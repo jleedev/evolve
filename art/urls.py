@@ -6,6 +6,7 @@ urlpatterns = patterns("evolve.art.views",
 	(r"^vote/$", "vote2"),
 
 	(r"^view/$", "browse"),
+	(r"^view/top$", "perfection"),
 	(r"^view/(?P<generation_num>\d+)/$", "generation"),
 	(r"^view/(?P<generation_num>\d+)/(?P<organism_id>\d+)/$", "view"),
 )

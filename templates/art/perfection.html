@@ -1,0 +1,31 @@
+{% extends "art/base" %}
+{% block title %}Hall of Fame{% endblock %}
+{% block bodyclass %}browse{% endblock %}
+
+{% block head %}
+<link rel="first" href="./">
+{% ifnotequal prev "None" %}
+<link rel="prev" href="?start={{ prev }}">{% endifnotequal %}
+{% ifnotequal next "None" %}
+<link rel="next" href="?start={{ next }}">{% endifnotequal %}
+<link rel="last" href="?start={{ last }}">
+{% endblock %}
+
+{% block content %}
+{% comment %}<p>Total votes: {{ votes }} out of {{ required }} required.</p>{% endcomment %}
+<div class="thumbs">
+{% for org in orgs %}
+<a href="../{{ org.id }}/"><img src="{{ org.get_thumbnail_url }}" alt="Org #{{ org.id }}" width="100" height="100"></a>{% endfor %}
+</div>
+
+<p class="pager">
+<a href="./">&lArr; Start</a>
+{% ifnotequal prev "None" %}<a href="?start={{ prev }}">&larr; Previous {{ count }}</a>{% endifnotequal %}
+<b>{{ start|add:1 }}&ndash;{{ stop }} of {{ total }}</b>
+{% ifnotequal next "None"%}<a href="?start={{ next }}">Next {{ count }} &rarr;</a>{% endifnotequal %}
+<a href="?start={{ last }}">End &rArr;</a>
+</p>
+
+<p><small>Sorted by number of upvotes.</small></p>
+{% endblock %}
+{%comment%} vi:se ft=htmldjango: {%endcomment%}
