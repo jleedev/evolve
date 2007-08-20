@@ -155,6 +155,8 @@ def view(request, generation_num, organism_id):
 	try: parents.append(organism.get_parent2())
 	except: pass
 	children = organism.get_organism_list()
+
+	perfect = organism.rating == 1 and organism.generation < organisms.get_current_generation()
 	return render_to_response("art/view_organism", locals())
 
 __all__ = "index vote vote2 browse generation perfection view".split()
