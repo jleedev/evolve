@@ -7,7 +7,10 @@
 {% endblock %}
 
 {% block content %}
-<p><a href="../">&uarr; generation {{ organism.generation }}</a></p>
+<p>
+<a href="../">&uarr; generation {{ organism.generation }}</a>
+{% if perfect %}<a href="../../top/">&uarr; hall of fame</a>{% endif %}
+</p>
 
 <div id="metadata">
 <table>
