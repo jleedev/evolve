@@ -135,7 +135,7 @@ def perfection(request):
 	orgs = organisms.get_list(
 		rating__exact=1.0,
 		rendered__exact=True,
-		generation__lt=organisms.get_current_generation()
+		generation__lt=organisms.get_current_generation(),
 		limit = 10,
 		offset = start,
 		order_by = ["-upvotes"],
