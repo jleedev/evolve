@@ -118,8 +118,8 @@ def breed():
 
 def main(argv):
 	print time.strftime("[%F %T]"), "breeder.py started"
+	cursor = db.cursor()
 	try:
-		cursor = db.cursor()
 		while True:
 			gen = organisms.get_current_generation()
 			cursor.execute("""
