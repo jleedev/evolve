@@ -172,3 +172,12 @@ table#view td {
 table#view td + td + td {
 	text-align: left;
 }
+
+/* ABOUT */
+p.license {
+	color: gray;
+	font-size: xx-small;
+	float: right;
+	text-align: right;
+	max-width: 20ex;
+}

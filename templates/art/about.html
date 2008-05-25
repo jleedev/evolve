@@ -2,11 +2,16 @@
 {% block title %}About Evolve{% endblock %}
 {% block bodyclass %}about{% endblock %}
 {% block content %}
+<p class="license"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"/></a><br/>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License</a>.
 <p><a href="http://en.wikipedia.org/wiki/Evolutionary_art">Evolutionary art</a> uses <a href="http://en.wikipedia.org/wiki/Genetic_programming">genetic programming</a> to produce art. It produces an initial population of random pictures, throws out the bad ones, and mixes the good ones together to form even better pictures in the hope that something aesthetically pleasing will appear. This is a project of <a href="mailto:jleedev gmail com">Josh Lee</a>, and it started running in April 2006.</p>
 <p>The best designs may end up on ties or wallpaper. &#x263a;</p>
 <p><a href="/~josh/code/evolve.tar.bz2">Download the source code (117 KB)</a></p>
 <h2>How it works</h2>
-<img src="/evolve_media/example_tree.png" alt="Example tree representing the expression RGB(Sin(3*x), x-y, 3/y)" style="float:right;max-width:3in">
+<div class="figure" style="float:right;text-align:center;max-width:3in">
+<img src="/evolve_media/example_tree.png" alt="Example tree representing the expression RGB(Sin(3*x), x-y, 3/y)" style="max-width:3in">
+<br>
+<span class="caption" style="font-size:smaller">Figure 1: A tree analogous to the maturity of my theoretical computer science education at the time of writing.</span>
+</div>
 <p>Each organism is represented by an expression tree. The expression takes two parameters, <var>x</var> and <var>y</var>, and manipulates them to create a color. The expression is evaluated for each point on the canvas, and together these points form an image.</p>
 <p>Once enough votes have been collected, the genetic algorithm gets to work. It picks the good images and breeds them using either mutation or crossing-over. Since the images' genes are just trees, it is simple to cross-over two of them and produce new ones. It also inserts new organisms into the mix, to keep things fresh.</p>
 <p>While the next generation is being prepared, you can still vote on the current generation, since it takes those votes into account.</p>
